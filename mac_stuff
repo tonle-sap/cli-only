@@ -1,0 +1,2 @@
+Change Mac Screenshot default dumps from goign to Desktop folder
+$ defaults write com.apple.screencapture location /some-path/

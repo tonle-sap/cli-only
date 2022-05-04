@@ -23,6 +23,8 @@ function gitme() {
     git commit -a -m "$1"
     git push
 }
+```
+
   
 switch between different versions of terraform <p>
 `brew install warrensbox/tap/tfswitch`

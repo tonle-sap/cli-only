@@ -1,8 +1,8 @@
 Change Mac Screenshot default dumps from goign to Desktop folder <p>
-`$ defaults write com.apple.screencapture location /some-path/`
+```$ defaults write com.apple.screencapture location /some-path/```
 
 Reset shell without closing terminal <p>
-`exec zsh -l`
+```exec zsh -l```
 
 Set full path on Finder's bar
 ```
@@ -27,6 +27,6 @@ function gitme() {
 
   
 switch between different versions of terraform <p>
-`brew install warrensbox/tap/tfswitch`
+```brew install warrensbox/tap/tfswitch```
 
  

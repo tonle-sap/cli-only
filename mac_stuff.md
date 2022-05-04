@@ -1,7 +1,7 @@
 Change Mac Screenshot default dumps from goign to Desktop folder <p>
 `$ defaults write com.apple.screencapture location /some-path/`
 
-Reset shell without closing <p>
+Reset shell without closing terminal <p>
 `exec zsh -l`
 
 Set full path on Finder's bar

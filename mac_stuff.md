@@ -2,7 +2,7 @@
 
 ## Change Mac Screenshot default dumps from going to Desktop folder
 
-    $ defaults write com.apple.screencapture location ~/Downloads/screenshots
+    defaults write com.apple.screencapture location ~/Downloads/screenshots
 
 ## Reset shell without closing terminal
 

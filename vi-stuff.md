@@ -1,4 +1,4 @@
-# VI Stuff
+# Vi Stuff
 
 ## Search and Replace
     /pattern				#Search for pattern.

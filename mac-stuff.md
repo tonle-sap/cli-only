@@ -10,7 +10,7 @@ https://formulae.brew.sh/
      
 ## SSH
 ### RSA
-     ssh-keygen -b 4096 -t rsa -f ~/.ssh/ -q -N ""
+     ssh-keygen -b 4096 -t rsa -C "foo@foome.com" -q -N ""
  
 ### ECDSA
      ssh-keygen -t ecdsa -b 521

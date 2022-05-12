@@ -92,7 +92,7 @@ sudo vi /etc/sudoers
 
 ### Brew Install apps  
     cat << 'EOF' > /tmp/brew-apps-install.sh
-    brew install \
+    brew install --force \
     mtr \
     telnet \
     tree \
@@ -113,7 +113,7 @@ sudo vi /etc/sudoers
 
 ### Brew cask install
     cat << 'EOF' > /tmp/brew-apps-cask-install.sh
-    brew install --cask \
+    brew install --force --cask \
     iterm2 \
     firefox \
     microsoft-edge \

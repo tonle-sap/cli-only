@@ -1,4 +1,17 @@
 # Mac Stuff
+Ref
+    https://github.com/andrewconnell/osx-install
+    https://brew.sh/
+
+## MacOS Software Update
+
+    softwareupdate -l       #list updates
+    softwareupdate -i NAME  #install specific update
+    softwareupdate -i -a    #install all software
+    
+## Homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    
 
 ## Change Mac Screenshot default dumps from going to Desktop folder
 

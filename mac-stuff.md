@@ -2,7 +2,14 @@
 Ref
     https://github.com/andrewconnell/osx-install  
     https://brew.sh/
+    
+## List user accounts
+    dscl . list /Users | grep -v “^_”
 
+## Add admin group/user to no password required for sudo
+sudo vi /etc/sudoers  
+    `%admin  ALL=(ALL) NOPASSWD: ALL`
+    
 ## MacOS Software Update
 
     softwareupdate -l       #list updates
@@ -10,7 +17,10 @@ Ref
     softwareupdate -i -a    #install all software
     
 ## Homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/{user_folder}/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    brew -v
     
 
 ## Change Mac Screenshot default dumps from going to Desktop folder

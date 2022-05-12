@@ -21,7 +21,7 @@ sudo vi /etc/sudoers
     # get Apple ID
     echo ""
     echo "Enter AppleID to signin to Mac App Store:"
-    read -p "  AppleID (virath@gmail.com): " APPLEID
+    read -p "  AppleID (foo@foo.com): " APPLEID
 
     # make sure signed into Mac App Store
     mas signin $APPLEID

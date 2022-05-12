@@ -1,7 +1,9 @@
 # Mac Stuff
-Ref
-    https://github.com/andrewconnell/osx-install  
-    https://brew.sh/
+
+## Ref
+https://github.com/andrewconnell/osx-install  
+https://brew.sh/  
+https://formulae.brew.sh/  
     
 ## List user accounts
     dscl . list /Users | grep -v “^_”
@@ -11,10 +13,33 @@ sudo vi /etc/sudoers
     `%admin  ALL=(ALL) NOPASSWD: ALL`
     
 ## MacOS Software Update
-
     softwareupdate -l       #list updates
     softwareupdate -i NAME  #install specific update
     softwareupdate -i -a    #install all software
+    
+## Local DevOps Home Dir  
+    cat << EOF > /tmp/local-devops-home.sh
+    #!/bin/bash
+    mkdir -p ~/devops/{repos,scripts,etc}
+    chmod +x /tmp/local-devops-home.sh
+    EOF
+    
+    /tmp/local-devops-home.sh
+    
+    cat << EOF > ~/.zshrc
+    export PATH=$PATH:~/devops/scripts/
+    
+    #Function for git mgmt - stages all, commit, and push to origin
+    function gitme() {
+        git add --all
+        git commit -a -m "$1"
+        git push
+    }
+    EOF
+    
+    exec zsh -l
+    
+    
     
 ## Mac Apple Store
     brew install mas
@@ -41,6 +66,8 @@ sudo vi /etc/sudoers
     brew -v
 
 ### Install apps
+    cat << 'EOF' > /tmp/brew-apps-install.sh
+    #!/bin/bash
     brew install \
     mtr \
     telnet \
@@ -55,22 +82,26 @@ sudo vi /etc/sudoers
     terragrunt \
     go \
     python-tk@3.10 \
-    --cask iterm2 \
-    --cask firefox \
-    --cask microsoft-edge \
-    --cask google-chrome \
-    --cask visual-studio-code \
-    --cask postman \
-    --cask slack \
-    --cask zoom \
-    --cask microsoft-teams \
-    --cask virtualbox \
-    --cask cyberduck \
-    --cask wireshark \
-    --cask dbeaver-community \
-    --cask lastpass \
-
     
+    brew install --cask \
+    iterm2 \
+    firefox \
+    microsoft-edge \
+    google-chrome \
+    visual-studio-code \
+    atom \
+    postman \
+    slack \
+    zoom \
+    microsoft-teams \
+    virtualbox \
+    cyberduck \
+    wireshark \
+    dbeaver-community \
+    lastpass \
+    EOF
+    
+    chmod +x /tmp/brew-apps-install.sh
     
     
 
@@ -92,7 +123,9 @@ sudo vi /etc/sudoers
 
     brew install tree
     
-
+## Which Shell
+     echo $0
+     
 ## Shell Stuff ~/.zshrc
 
     export PATH=$PATH:~/devops/scripts/

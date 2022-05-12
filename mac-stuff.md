@@ -4,6 +4,9 @@
 https://github.com/andrewconnell/osx-install  
 https://brew.sh/  
 https://formulae.brew.sh/  
+
+## Which Shell
+     echo $0
     
 ## List user accounts
     dscl . list /Users | grep -v “^_”
@@ -17,7 +20,8 @@ sudo vi /etc/sudoers
     softwareupdate -i NAME  #install specific update
     softwareupdate -i -a    #install all software
     
-## Local DevOps Home Dir  
+## Local  IDE Prep
+### DevOps Home Dir 
     cat << EOF > /tmp/local-devops-home.sh
     #!/bin/bash
     mkdir -p ~/devops/{repos,scripts,etc}
@@ -25,7 +29,8 @@ sudo vi /etc/sudoers
     EOF
     
     /tmp/local-devops-home.sh
-    
+ 
+### Z Shell Profile
     cat << EOF > ~/.zshrc
     export PATH=$PATH:~/devops/scripts/
     
@@ -35,11 +40,31 @@ sudo vi /etc/sudoers
         git commit -a -m "$1"
         git push
     }
+    
+    #Function to do brew cask install
+    brew_cask_install() {
+    echo "\nInstalling $1"
+    if brew list $1 &>/dev/null; then
+        echo "${1} is already installed"
+    else
+        brew install --cask \ $1 && echo "$1 is installed"
+    fi
+    }
+
+    
+    #Function to do brew install
+    brew_install() {
+    echo "\nInstalling $1"
+    if brew list $1 &>/dev/null; then
+        echo "${1} is already installed"
+    else
+        brew install \ $1 && echo "$1 is installed"
+    fi
+    }
+    
     EOF
     
     exec zsh -l
-    
-    
     
 ## Mac Apple Store
     brew install mas
@@ -65,9 +90,8 @@ sudo vi /etc/sudoers
     brew update
     brew -v
 
-### Install apps
+### Brew Install apps  
     cat << 'EOF' > /tmp/brew-apps-install.sh
-    #!/bin/bash
     brew install \
     mtr \
     telnet \
@@ -83,6 +107,12 @@ sudo vi /etc/sudoers
     go \
     python-tk@3.10 \
     
+    EOF
+    
+    chmod +x /tmp/brew-apps-install.sh && /tmp/brew-apps-install.sh
+
+### Brew cask install
+    cat << 'EOF' > /tmp/brew-apps-cask-install.sh
     brew install --cask \
     iterm2 \
     firefox \
@@ -101,7 +131,7 @@ sudo vi /etc/sudoers
     lastpass \
     EOF
     
-    chmod +x /tmp/brew-apps-install.sh
+    chmod +x /tmp/brew-apps-cask-install.sh && /tmp/brew-apps-cask-install.sh
     
     
 
@@ -119,24 +149,9 @@ sudo vi /etc/sudoers
     killall Finder
     
 
-## Tree
-
-    brew install tree
     
-## Which Shell
-     echo $0
+
      
-## Shell Stuff ~/.zshrc
-
-    export PATH=$PATH:~/devops/scripts/
-    
-    #Function for git mgmt - stages all, commit, and push to origin
-    function gitme() {
-        git add --all
-        git commit -a -m "$1"
-        git push
-    }
-
 
 ## Switch between different versions of terraform
 

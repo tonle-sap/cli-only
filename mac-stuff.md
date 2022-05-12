@@ -7,6 +7,15 @@ https://formulae.brew.sh/
 
 ## Which Shell
      echo $0
+     
+## SSH
+### RSA
+     ssh-keygen -b 4096 -t rsa -f ~/.ssh/ -q -N ""
+ 
+### ECDSA
+     ssh-keygen -t ecdsa -b 521
+### ED25519
+     ssh-keygen -t ed25519
     
 ## List user accounts
     dscl . list /Users | grep -v “^_”

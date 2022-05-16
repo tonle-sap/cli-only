@@ -4,6 +4,7 @@
 https://github.com/andrewconnell/osx-install  
 https://brew.sh/  
 https://formulae.brew.sh/  
+https://www.synaptics.com/products/displaylink-graphics/downloads/macos  
 
 ## Which Shell
      echo $0
